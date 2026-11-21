@@ -38,12 +38,17 @@ export async function registerAgent({ account, chain, registry, agentURI }) {
   const receipt = await pub.waitForTransactionReceipt({ hash });
   console.log(`  tx: ${hash} (status ${receipt.status})`);
   if (receipt.status !== 'success') throw new Error('registration reverted');
-  const log = receipt.logs.find((l) => l.address.toLowerCase() === registry.toLowerCase());
+  // The agent ID is the tokenId of the ERC-721 mint: read it from the Transfer
+  // event (topic0 0xddf252ad…, tokenId is topics[3]). Do NOT read topics[1] of
+  // the first registry log — on mint that is the zero `from` address, which
+  // parses as agent ID 0 (bug found 21 Nov: real Sepolia ID was 1038).
+  const TRANSFER_TOPIC = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+  const transfer = receipt.logs.find(
+    (l) => l.address.toLowerCase() === registry.toLowerCase()
+      && l.topics[0] === TRANSFER_TOPIC && l.topics.length === 4,
+  );
   let agentId = null;
-  if (log) {
-    // Registered(uint256 agentId, address owner, string agentURI): agentId is topic[1]
-    agentId = BigInt(log.topics[1]).toString();
-  }
+  if (transfer) agentId = BigInt(transfer.topics[3]).toString();
   console.log(`  agent ID: ${agentId}`);
   return { hash, agentId };
 }

@@ -1,1 +1,29 @@
-{"description":"Nishi Payout Agent — pays freelancers in local stablecoins on Celo. Built for the Celo 'Agents Open for Business' hackathon, Stablecoin Corridors track.","name":"Nishi Payout Agent","registrations":[],"services":[{"endpoint":"https://github.com/kabla1696-ctrl/celo-payout-agent","name":"github","type":"web"},{"endpoint":"celo-payout-agent","name":"agent","type":"cli"}],"x402Support":false}
+{
+  "description": "Nishi Payout Agent — pays freelancers in local stablecoins on Celo. Built for the Celo 'Agents Open for Business' hackathon, Stablecoin Corridors track.",
+  "name": "Nishi Payout Agent",
+  "registrations": [
+    {
+      "chain": "celo-sepolia",
+      "chainId": 11142220,
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "agentId": "1038",
+      "tx": "0x08201c7b4dd19b00b3fe00f257c06df94b0f432cb5eb7cb88a7eab1caaf092b1",
+      "block": 41978943,
+      "at": "2026-11-21T12:14:00Z",
+      "agentURI": "data:application/json;base64,eyJkZXNjcmlwdGlvbiI6Ik5pc2hpIFBheW91dCBBZ2VudCDigJQgcGF5cyBmcmVlbGFuY2VycyBpbiBsb2NhbCBzdGFibGVjb2lucyBvbiBDZWxvLiBCdWlsdCBmb3IgdGhlIENlbG8gJ0FnZW50cyBPcGVuIGZvciBCdXNpbmVzcycgaGFja2F0aG9uLCBTdGFibGVjb2luIENvcnJpZG9ycyB0cmFjay4iLCJuYW1lIjoiTmlzaGkgUGF5b3V0IEFnZW50IiwicmVnaXN0cmF0aW9ucyI6W10sInNlcnZpY2VzIjpbeyJlbmRwb2ludCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9rYWJsYTE2OTYtY3RybC9jZWxvLXBheW91dC1hZ2VudCIsIm5hbWUiOiJnaXRodWIiLCJ0eXBlIjoid2ViIn0seyJlbmRwb2ludCI6ImNlbG8tcGF5b3V0LWFnZW50IiwibmFtZSI6ImFnZW50IiwidHlwZSI6ImNsaSJ9XSwieDQwMlN1cHBvcnQiOmZhbHNlfQ=="
+    }
+  ],
+  "services": [
+    {
+      "endpoint": "https://github.com/kabla1696-ctrl/celo-payout-agent",
+      "name": "github",
+      "type": "web"
+    },
+    {
+      "endpoint": "celo-payout-agent",
+      "name": "agent",
+      "type": "cli"
+    }
+  ],
+  "x402Support": false
+}
